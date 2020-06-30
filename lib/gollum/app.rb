@@ -204,7 +204,7 @@ module Precious
       post %r{/revert/(\.redirects.gollum|(custom|mathjax\.config\.)\.(js|css)/.*/.*)} do
         forbid('Changing this resource is not allowed.')
       end
-
+      
       get '/edit/*' do
         forbid unless @allow_editing
         wikip = wiki_page(params[:splat].first)
