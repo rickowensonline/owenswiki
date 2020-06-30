@@ -17,14 +17,18 @@ wiki_options = {
   :h1_title => true
 }
 Precious::App.set(:wiki_options, wiki_options)
-Precious::App.set(:protection, :except => [:session_hijacking])
 
 options = {
   :providers => Proc.new do
     provider :discord, ENV['DISCORD_CLIENT_ID'], ENV['DISCORD_CLIENT_SECRET'], scope: 'email identify'
   end,
   :dummy_auth => false,
-  :protected_routes => ['/gollum/create/*'],
+  :protected_routes => [
+    '/gollum/create/*',
+    '/gollum/edit/*',
+    '/gollum/delete/*',
+    '/gollum/rename/*'
+  ],
   :authorized_users => true,
   :author_format => Proc.new { |user| user.name },
   :author_email => Proc.new { |user| user.email },
