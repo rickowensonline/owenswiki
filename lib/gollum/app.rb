@@ -189,6 +189,14 @@ module Precious
         forbid('Changing this resource is not allowed.')
       end
 
+      get %r{/(edit|create)/(\.redirects.gollum|(Home)(\.(md))?)} do
+        forbid('Changing this resource is not allowed.')
+      end
+
+      post %r{/(delete|rename|edit|create)/(\.redirects.gollum|(Home)(\.(md))?)} do
+        forbid('Changing this resource is not allowed.')
+      end
+
       post %r{/(delete|rename|edit|create)/(\.redirects.gollum|(custom|mathjax\.config)\.(js|css))} do
         forbid('Changing this resource is not allowed.')
       end
