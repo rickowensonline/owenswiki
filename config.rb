@@ -9,7 +9,7 @@ wiki_options = {
   :allow_uploads => true,
   :per_page_uploads => false,
   :page_file_dir => 'docs/',
-  :critic_markup => true
+  :critic_markup => true,
   :allow_editing => true,
   :css => true,
   :emoji => true,
@@ -23,12 +23,12 @@ options = {
     provider :discord, ENV['DISCORD_CLIENT_ID'], ENV['DISCORD_CLIENT_SECRET'], scope: 'email identify'
   end,
   :dummy_auth => false,
-  :protected_routes => ['/Home'],
+  :protected_routes => ['/gollum/delete/Home.md'],
   :author_format => Proc.new { |user| user.name },
   :author_email => Proc.new { |user| user.email },
 
   # Authorized users
-  :authorized_users => ["jmpirro@gmail.com"],
+  #:authorized_users => ["jmpirro@gmail.com"],
 }
 
 ## :omnigollum options *must* be set before the Omnigollum extension is registered
